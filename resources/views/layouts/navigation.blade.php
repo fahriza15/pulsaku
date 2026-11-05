@@ -15,6 +15,18 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('shop')" :active="request()->routeIs('shop')">
+                Beli Pulsa
+                    </x-nav-link>
+                        <x-nav-link :href="route('orders.index')" :active="request()->routeIs('orders.*')">
+                Riwayat Pesanan
+                    </x-nav-link>
+
+@if (auth()->user()->role === 'admin')
+    <x-nav-link :href="route('admin.products.index')" :active="request()->routeIs('admin.products.*')">
+        Kelola Produk
+    </x-nav-link>
+@endif
                 </div>
             </div>
 
@@ -70,6 +82,18 @@
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('shop')" :active="request()->routeIs('shop')">
+    Beli Pulsa
+</x-responsive-nav-link>
+<x-responsive-nav-link :href="route('orders.index')" :active="request()->routeIs('orders.*')">
+    Riwayat Pesanan
+</x-responsive-nav-link>
+
+@if (auth()->user()->role === 'admin')
+    <x-responsive-nav-link :href="route('admin.products.index')" :active="request()->routeIs('admin.products.*')">
+        Kelola Produk
+    </x-responsive-nav-link>
+@endif
         </div>
 
         <!-- Responsive Settings Options -->
