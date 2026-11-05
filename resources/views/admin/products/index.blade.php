@@ -13,13 +13,13 @@
             @endif
 
             <a href="{{ route('admin.products.create') }}"
-               class="inline-block mb-4 px-4 py-2 bg-gray-800 text-white rounded-md">
+               class="inline-block mb-4 px-4 py-2 bg-aeon hover:bg-aeon-dark text-white rounded-md">
                 + Tambah Produk
             </a>
 
             <div class="bg-white shadow-sm rounded-lg overflow-x-auto">
                 <table class="w-full text-left">
-                    <thead class="bg-gray-100">
+                    <thead class="bg-aeon-light text-aeon-dark">
                         <tr>
                             <th class="p-3">Operator</th>
                             <th class="p-3">Nominal</th>
@@ -38,7 +38,7 @@
                                 <td class="p-3">Rp {{ number_format($p->harga_jual, 0, ',', '.') }}</td>
                                 <td class="p-3">Rp {{ number_format($p->harga_jual - $p->harga_modal, 0, ',', '.') }}</td>
                                 <td class="p-3 flex gap-2">
-                                    <a href="{{ route('admin.products.edit', $p) }}" class="text-blue-600">Ubah</a>
+                                    <a href="{{ route('admin.products.edit', $p) }}" class="text-aeon">Ubah</a>
                                     <form method="POST" action="{{ route('admin.products.destroy', $p) }}"
                                           onsubmit="return confirm('Hapus produk ini?')">
                                         @csrf

@@ -42,7 +42,7 @@
                     @endforeach
                     @error('metode_bayar') <p class="text-red-600 text-sm">{{ $message }}</p> @enderror
 
-                    <button type="submit" class="mt-4 px-4 py-2 bg-gray-800 text-white rounded-md">
+                    <button type="submit" class="mt-4 px-4 py-2 bg-aeon hover:bg-aeon-dark text-white rounded-md">
                         Simulasikan Bayar
                     </button>
                     <p class="mt-2 text-xs text-gray-500">Ini simulasi pembayaran, tidak ada uang sungguhan.</p>
@@ -51,14 +51,14 @@
 
             @if ($order->status === 'paid')
                 <a href="{{ route('orders.invoice', $order) }}"
-                   class="inline-block mt-6 px-4 py-2 bg-gray-800 text-white rounded-md">
+                   class="inline-block mt-6 px-4 py-2 bg-aeon hover:bg-aeon-dark text-white rounded-md">
                     Unduh Invoice PDF
                 </a>
             @endif
 
             <div class="mt-6 flex gap-4 text-sm">
-                <a href="{{ route('orders.index') }}" class="text-blue-600">Riwayat Pesanan</a>
-                <a href="{{ route('shop') }}" class="text-blue-600">Beli Lagi</a>
+                <a href="{{ route('orders.index') }}" class="text-aeon">Riwayat Pesanan</a>
+                <a href="{{ route('shop') }}" class="text-aeon">Beli Lagi</a>
             </div>
         </div>
     </div>

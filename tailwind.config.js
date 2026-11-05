@@ -8,14 +8,20 @@ export default {
         './storage/framework/views/*.php',
         './resources/views/**/*.blade.php',
     ],
-
     theme: {
         extend: {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
+            colors: {
+                aeon: {
+                    DEFAULT: '#B5007A',
+                    dark: '#8A005E',
+                    light: '#FCE7F3',
+                    soft: '#F8D0E8',
+                },
+            },
         },
     },
-
     plugins: [forms],
 };

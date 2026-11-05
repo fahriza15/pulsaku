@@ -37,7 +37,7 @@
                     <p class="mt-4 text-gray-500">Belum ada produk. Minta admin tambah dulu.</p>
                 @endforelse
 
-                <button type="submit" class="mt-6 px-4 py-2 bg-gray-800 text-white rounded-md">
+                <button type="submit" class="mt-6 px-4 py-2 bg-aeon hover:bg-aeon-dark text-white rounded-md">
                     Lanjut ke Pembayaran
                 </button>
             </form>

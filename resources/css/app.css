@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+[type='text']:focus,
+[type='email']:focus,
+[type='password']:focus,
+[type='number']:focus {
+    --tw-ring-color: #B5007A;
+    border-color: #B5007A;
+}
+
+[type='radio'],
+[type='checkbox'] {
+    color: #B5007A;
+}

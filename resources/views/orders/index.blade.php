@@ -5,13 +5,13 @@
 
     <div class="py-12">
         <div class="max-w-4xl mx-auto px-6">
-            <a href="{{ route('shop') }}" class="inline-block mb-4 px-4 py-2 bg-gray-800 text-white rounded-md">
+            <a href="{{ route('shop') }}" class="inline-block mb-4 px-4 py-2 bg-aeon hover:bg-aeon-dark text-white rounded-md">
                 + Beli Pulsa
             </a>
 
             <div class="bg-white shadow-sm rounded-lg overflow-x-auto">
                 <table class="w-full text-left">
-                    <thead class="bg-gray-100">
+                    <thead class="bg-aeon-light text-aeon-dark">
                         <tr>
                             <th class="p-3">Kode</th>
                             <th class="p-3">Operator</th>
@@ -31,7 +31,7 @@
                                 <td class="p-3">{{ $o->nomor_hp }}</td>
                                 <td class="p-3">Rp {{ number_format($o->total, 0, ',', '.') }}</td>
                                 <td class="p-3">{{ ucfirst($o->status) }}</td>
-                                <td class="p-3"><a href="{{ route('orders.show', $o) }}" class="text-blue-600">Detail</a></td>
+                                <td class="p-3"><a href="{{ route('orders.show', $o) }}" class="text-aeon">Detail</a></td>
                             </tr>
                         @empty
                             <tr><td colspan="7" class="p-6 text-center text-gray-500">Belum ada pesanan.</td></tr>
