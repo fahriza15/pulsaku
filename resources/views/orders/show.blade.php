@@ -49,6 +49,13 @@
                 </form>
             @endif
 
+            @if ($order->status === 'paid')
+                <a href="{{ route('orders.invoice', $order) }}"
+                   class="inline-block mt-6 px-4 py-2 bg-gray-800 text-white rounded-md">
+                    Unduh Invoice PDF
+                </a>
+            @endif
+
             <div class="mt-6 flex gap-4 text-sm">
                 <a href="{{ route('orders.index') }}" class="text-blue-600">Riwayat Pesanan</a>
                 <a href="{{ route('shop') }}" class="text-blue-600">Beli Lagi</a>

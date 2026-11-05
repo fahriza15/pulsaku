@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Order;
 use App\Models\Product;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -81,6 +82,20 @@ class OrderController extends Controller
 
         return redirect()->route('orders.show', $order)
             ->with('success', 'Pembayaran berhasil (simulasi).');
+    }
+
+    // Unduh invoice PDF (hanya untuk pesanan yang sudah dibayar)
+    public function invoice(Order $order)
+    {
+        abort_unless(
+            $order->user_id === auth()->id() || auth()->user()->role === 'admin',
+            403
+        );
+        abort_unless($order->status === 'paid', 404);
+
+        $pdf = Pdf::loadView('orders.invoice', compact('order'));
+
+        return $pdf->download('invoice-' . $order->kode . '.pdf');
     }
 
     private function pastikanMilikSendiri(Order $order): void

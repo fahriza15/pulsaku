@@ -1,9 +1,9 @@
 <?php
 
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\OrderController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -21,6 +21,17 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
+// Pembeli
+Route::middleware('auth')->group(function () {
+    Route::get('/beli', [OrderController::class, 'shop'])->name('shop');
+    Route::post('/beli', [OrderController::class, 'store'])->name('orders.store');
+    Route::get('/pesanan', [OrderController::class, 'index'])->name('orders.index');
+    Route::get('/pesanan/{order}', [OrderController::class, 'show'])->name('orders.show');
+    Route::post('/pesanan/{order}/bayar', [OrderController::class, 'pay'])->name('orders.pay');
+    Route::get('/pesanan/{order}/invoice', [OrderController::class, 'invoice'])->name('orders.invoice');
+});
+
+// Admin
 Route::get('/admin', function () {
     return view('admin.dashboard');
 })->middleware(['auth', 'admin'])->name('admin.dashboard');
@@ -31,11 +42,3 @@ Route::middleware(['auth', 'admin'])
     ->group(function () {
         Route::resource('products', ProductController::class)->except('show');
     });
-
-Route::middleware('auth')->group(function () {
-       Route::get('/beli', [OrderController::class, 'shop'])->name('shop');
-       Route::post('/beli', [OrderController::class, 'store'])->name('orders.store');
-       Route::get('/pesanan', [OrderController::class, 'index'])->name('orders.index');
-       Route::get('/pesanan/{order}', [OrderController::class, 'show'])->name('orders.show');
-       Route::post('/pesanan/{order}/bayar', [OrderController::class, 'pay'])->name('orders.pay');
-   });
